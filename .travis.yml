@@ -1,0 +1,15 @@
+dist: trusty
+sudo: required
+language:               node_js
+node_js:
+    - "node"
+    - "lts/*"
+    - "7"
+    - "8"
+before_install:
+    - npm install -g npm@latest
+    - npm install -g eye.js
+script:
+    - eye # JS
+notifications:
+  email:                false

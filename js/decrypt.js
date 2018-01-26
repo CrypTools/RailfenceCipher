@@ -3,53 +3,40 @@
 Use: "HolelWrdlo!".decrypt(3) OR "HolelWrdlo!".decrypt()
 
 **********************************/
-String.prototype.decrypt = function(rows = 3) {
-    const div = 2 * (rows - 2) + 2;
-    const stringArr = this.split("");
-    const len = parseInt(stringArr.length / div);
-    let remainder = stringArr.length % div;
-    let splitArr = [];
-    let tempArr = [];
-    const result = [];
-    for (let i = 0; i < rows; i++) {
-        splitArr.push(i == 0 || i == rows - 1 ? len : 2 * len);
-    }
-    if (remainder > rows) {
-        splitArr = splitArr.map(num => num + 1);
-        remainder = remainder - rows;
-        for (var j = rows - 2; j >= rows - remainder - 1; j--) {
-            splitArr[j]++;
-        }
-    } else {
-        for (var j = 0; j < remainder; j++) {
-            splitArr[j]++;
-        }
-    }
+String.prototype.decrypt = function(rows) {
+    var fence = []
+    for (var i = 0; i < rows; i++) fence.push([])
+    var rail = 0,
+      change = 1;
 
-    tempArr = splitArr.map(len => {
-        const ans = stringArr.splice(0, len);
-        return ans;
-    });
-    let float = 0;
-    let k = 0;
+    this.split('').forEach(char => {
+        fence[rail].push(char)
+        rail += change
 
-    const lineUp = isAdd => {
-        if (k == this.length) {
-            return;
-        }
-        result.push(tempArr[float].shift());
-        k++;
-        isAdd ? float++ : float--;
-        if (float == rows) {
-            float = float - 2;
-            isAdd = false;
-        }
-        if (float == 0) {
-            isAdd = true;
-        }
-        lineUp(isAdd);
+        if (rail === rows-1 || rail === 0) change = -change
+    })
+
+    var rFence = []
+    for (var i = 0; i < rows; i++) rFence.push([])
+
+    i = 0
+    s = this.split('')
+    for (r of fence) {
+        for (var j = 0; j < r.length; j++) rFence[i].push(s.shift())
+        i++
     }
 
-    lineUp(true);
-    return result.join("");
+    rail = 0
+    change = 1
+    var r = ''
+    for (var i = 0; i < this.length; i++) {
+        r += rFence[rail].shift()
+        rail += change
+
+        if (rail === rows-1 || rail === 0) change = -change
+    }
+
+    return r
 }
+
+module.exports = (text, rows=3) => text.decrypt(rows)
