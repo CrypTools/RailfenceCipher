@@ -5,6 +5,7 @@
 </p>
 <p align="center">
 <img src="https://cryptools.github.io/img/status/implemented.svg">
+<img src="https://img.shields.io/travis/CrypTools/RailfenceCipher.svg">
 <img src="https://img.shields.io/github/license/Cryptools/RailFenceCipher.svg">
 <img src="https://img.shields.io/github/contributors/Cryptools/RailFenceCipher.svg">
 </p>
@@ -68,7 +69,7 @@ We can are back to the original set of rails used to encode the message, and we 
 
 ## Running the tests
 
-Tests are automatically handled by [Travis CI](https://travis-ci.org).
+Tests are automatically handled by [Travis CI](https://travis-ci.org/CrypTools/RailfenceCipher/).
 
 ## Contributing
 
