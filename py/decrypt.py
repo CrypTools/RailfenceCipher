@@ -1,46 +1,35 @@
-def decrypt(s, n):
-    clen = 2*n - 2
-    c = ceil(len(s) / clen)
-    l = len(s)
-
-    if (l / clen) % 1 == 0:
-        c += 1
-
+def decrypt(s,n):
     fence = [[] for i in range(n)]
-    rlen  = [2*c for i in range(n)]
-    rlen[0] = c
-    rlen[n-1] = c
+    rail  = 0
+    var   = 1
 
-    var  = 1
-    rail = 1
+    for char in s:
+        fence[rail].append(char)
+        rail += var
 
+        if rail == n-1 or rail == 0:
+            var = -var
+
+    rFence = [[] for i in range(n)]
+
+    i = 0
+    l = len(s)
     s = list(s)
-
-    for i in range(clen - l % clen):
-        rlen[rail] -= 1
-        rail += var
-
-        if rail == n-1 or rail == 0:
-            var = -var
+    for r in fence:
+        for j in range(len(r)):
+            rFence[i].append(s[0])
+            s.remove(s[0])
+        i += 1
 
     rail = 0
-    for i in list(reversed(rlen)):
-        for j in range(i):
-            fence[rail].append(s.pop())
-        rail += 1
-
-    fence = list(reversed(fence))
-
-    rail = 0
-    var = 1
-
+    var  = 1
     r = ''
-
     for i in range(l):
-        r += fence[rail].pop()
+        r += rFence[rail][0]
+        rFence[rail].remove(rFence[rail][0])
         rail += var
 
         if rail == n-1 or rail == 0:
             var = -var
 
-    return r
+  return r
