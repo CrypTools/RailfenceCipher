@@ -1,8 +1,12 @@
-/*********************************
+/* ==========================================================================
+ *
+ *    Use:
+ *    "HWe o!lordll".decrypt(4)
+ *    => "Hello World!"
+ *
+ * ========================================================================== */
 
-Use: "HolelWrdlo!".decrypt(3) OR "HolelWrdlo!".decrypt()
 
-**********************************/
 String.prototype.decrypt = function(rows) {
     var fence = []
     for (var i = 0; i < rows; i++) fence.push([])
