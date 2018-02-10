@@ -7,7 +7,7 @@
  * ========================================================================== */
 
 
-String.prototype.encrypt = function(rows) {
+String.prototype.encrypt = function(rows=3) {
   var fence = []
   for (var i = 0; i < rows; i++) fence.push([])
   var rail = 0,
@@ -26,4 +26,4 @@ String.prototype.encrypt = function(rows) {
   return r
 }
 
-module.exports = (text, rows=3) => text.encrypt(rows)
+module.exports = (text, rows) => text.encrypt(rows)
