@@ -66,6 +66,7 @@ We can are back to the original set of rails used to encode the message, and we 
 |------------|-----------------------------|-----------------------------|
 | Javascript | [encrypt.js](js/encrypt.js) | [decrypt.js](js/decrypt.js) |
 |   Python   | [encrypt.py](py/encrypt.py) | [decrypt.py](py/decrypt.py) |
+|    Swift   | [lib.swift](swift/lib.swift)|         Coming soon         |
 
 ## Running the tests
 
