@@ -7,11 +7,11 @@
  * ========================================================================== */
 
 
-String.prototype.encrypt = function(rows) {
-  var fence = []
-  for (var i = 0; i < rows; i++) fence.push([])
-  var rail = 0,
-      change = 1;
+String.prototype.encrypt = function(rows=3) {
+  const fence = [];
+  for (let i = 0; i < rows; i++) fence.push([])
+  let rail = 0;
+  let change = 1;
 
   for (char of this.split('')) {
     fence[rail].push(char)
@@ -20,10 +20,10 @@ String.prototype.encrypt = function(rows) {
     if (rail === rows-1 || rail === 0) change = -change
   }
 
-  var r = ''
+  let r = '';
   for (rail of fence) r += rail.join('')
 
   return r
 }
 
-module.exports = (text, rows=3) => text.encrypt(rows)
+module.exports = (text, rows) => text.encrypt(rows)

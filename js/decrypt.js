@@ -7,11 +7,11 @@
  * ========================================================================== */
 
 
-String.prototype.decrypt = function(rows) {
-    var fence = []
+String.prototype.decrypt = function(rows=3) {
+    const fence = [];
     for (var i = 0; i < rows; i++) fence.push([])
-    var rail = 0,
-      change = 1;
+    let rail = 0;
+    let change = 1;
 
     this.split('').forEach(char => {
         fence[rail].push(char)
@@ -20,13 +20,13 @@ String.prototype.decrypt = function(rows) {
         if (rail === rows-1 || rail === 0) change = -change
     })
 
-    var rFence = []
+    const rFence = [];
     for (var i = 0; i < rows; i++) rFence.push([])
 
     i = 0
     s = this.split('')
     for (r of fence) {
-        for (var j = 0; j < r.length; j++) rFence[i].push(s.shift())
+        for (let j = 0; j < r.length; j++) rFence[i].push(s.shift())
         i++
     }
 
@@ -43,4 +43,4 @@ String.prototype.decrypt = function(rows) {
     return r
 }
 
-module.exports = (text, rows=3) => text.decrypt(rows)
+module.exports = (text, rows) => text.decrypt(rows)
