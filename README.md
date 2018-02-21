@@ -82,8 +82,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Arthur Guiot** - *Initial work (Javascript)* - [@arguiot](https://github.com/arguiot)
-* **Lucas Gruwez** - *Python Implementation* - [@lucasgruwez](https://github.com/lucasgruwez)
+Made with ❤️ at CrypTools.
 
 See also the list of [contributors](https://github.com/CrypTools/RailFenceCipher/contributors) who participated in this project.
 
