@@ -3,27 +3,27 @@
  *    Use:
  *    "Hello World!".encrypt(4)
  *    => "HWe o!lordll"
- *    
+ *
  * ========================================================================== */
 
 
-String.prototype.encrypt = function(rows=3) {
-  const fence = [];
-  for (let i = 0; i < rows; i++) fence.push([])
-  let rail = 0;
-  let change = 1;
+String.prototype.encrypt = function(rows = 3) {
+    const fence = [];
+    for (let i = 0; i < rows; i++) fence.push([])
+    let rail = 0;
+    let change = 1;
 
-  for (char of this.split('')) {
-    fence[rail].push(char)
-    rail += change
+    for (let char of this.split("")) {
+        fence[rail].push(char)
+        rail += change
 
-    if (rail === rows-1 || rail === 0) change = -change
-  }
+        if (rail === rows - 1 || rail === 0) change = -change
+    }
 
-  let r = '';
-  for (rail of fence) r += rail.join('')
+    let r = '';
+    for (let rail of fence) r += rail.join("")
 
-  return r
+    return r
 }
 
 module.exports = (text, rows) => text.encrypt(rows)
