@@ -27,4 +27,4 @@ String.prototype.encrypt = function(rows = 3) {
     return r
 }
 
-module.exports = (text, rows) => text.encrypt(rows)
+module.exports = (text, rows=3) => text.encrypt(rows)
