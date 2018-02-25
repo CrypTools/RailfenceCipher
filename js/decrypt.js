@@ -8,7 +8,7 @@
 
 
 String.prototype.decrypt = function(rows = 3) {
-    const fence = [];
+    let fence = [];
     for (let i = 0; i < rows; i++) fence.push([])
     let rail = 0;
     let change = 1;
