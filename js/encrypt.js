@@ -8,6 +8,7 @@
 
 
 String.prototype.encrypt = function(rows = 3) {
+    let rows  = rows || 3
     let fence = [];
     for (let i = 0; i < rows; i++) fence.push([])
     let rail = 0;
