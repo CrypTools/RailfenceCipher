@@ -43,4 +43,4 @@ String.prototype.decrypt = function(rows = 3) {
     return r
 }
 
-module.exports = (text, rows) => text.decrypt(rows);
+module.exports = (text, rows = 3) => text.decrypt(rows);
