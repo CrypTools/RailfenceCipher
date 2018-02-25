@@ -8,7 +8,6 @@
 
 
 String.prototype.encrypt = function(rows = 3) {
-    console.log(rows)
     let fence = [];
     for (let i = 0; i < rows; i++) fence.push([])
     let rail = 0;
@@ -27,4 +26,4 @@ String.prototype.encrypt = function(rows = 3) {
     return r
 }
 
-module.exports = (text, rows=3) => text.encrypt(rows)
+module.exports = (text, rows = 3) => text.encrypt(rows)
