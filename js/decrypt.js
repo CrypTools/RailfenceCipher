@@ -25,7 +25,7 @@ String.prototype.decrypt = function(rows = 3) {
     for (let i = 0; i < rows; i++) rFence.push([])
 
     i = 0
-    s = this.split("")
+    let s = this.split("")
     for (r of fence) {
         for (let j = 0; j < r.length; j++) rFence[i].push(s.shift())
         i++
