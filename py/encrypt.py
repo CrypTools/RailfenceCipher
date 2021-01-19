@@ -1,7 +1,8 @@
 # ==============================================================================
 #
 #    Use:
-#    encrypt("Hello World", 4)
+#    Enter the message: Hello World!
+#    Enter the number of rails: 4
 #    => "HWe o!lordll"
 #
 # ==============================================================================
@@ -24,3 +25,9 @@ def encrypt(s,n):
       res += j
 
   return res
+
+plain_text=input("Enter the message: ")
+rail_len=input("Enter the number of rails: ")
+rail_len = int(rail_len)
+cipher_text = encrypt(plain_text, rail_len)
+print(cipher_text)
