@@ -1,7 +1,8 @@
 # ==============================================================================
 #
 #    Use:
-#    decrypt("HWe o!lordll", 4)
+#    Enter the cipher: HWe o!lordll
+#    Enter the number of rails: 4
 #    => "Hello World!"
 #
 # ==============================================================================
@@ -41,4 +42,10 @@ def decrypt(s,n):
         if rail == n-1 or rail == 0:
             var = -var
 
-  return r
+    return r
+
+cipher_text=input("Enter the cipher: ")
+rail_len=input("Enter the number of rails: ")
+rail_len = int(rail_len)
+plain_text = decrypt(cipher_text, rail_len)
+print(plain_text)
